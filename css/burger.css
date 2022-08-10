@@ -1,0 +1,161 @@
+:root {
+  --color-black: black;
+}
+
+.hidden {
+  visibility: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.burger {
+  display: block;
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--color-white);
+  margin: 0.5rem;
+}
+
+.burger span {
+  user-select: none;
+  position: absolute;
+  margin: 0.0625rem auto 0.525rem -0.75rem;
+  text-indent: -999em;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.0625rem;
+  cursor: pointer;
+}
+
+.burger span, .burger span:before, .burger span:after {
+  display: block;
+  width: 1.5rem;
+  height: 0.125rem;
+  background-color: var(--color-black);
+  transition: 0.3s;
+  opacity: 1;
+}
+
+.burger span:before, .burger span:after {
+  position: absolute;
+  content: "";
+}
+
+.burger span:before {
+  top: -0.525rem;
+}
+
+.burger span:after {
+  top: 0.525rem;
+}
+
+.burgers {
+  display: flex;
+}
+
+.burger1 input:checked + span:before, .burger1 input:checked + span:after {
+  top: 0px;
+  margin-top: -0.5875rem;
+}
+
+.burger1 input:checked + span {
+  background-color: transparent;
+}
+
+.burger1 input:checked + span:before {
+  transform: translateY(0.525rem) rotate(45deg);
+}
+
+.burger1 input:checked + span:after {
+  transform: translateY(0.525rem) rotate(-45deg);
+}
+
+.burger2 input:checked + span:before, .burger2 input:checked + span:after {
+  top: 0px;
+  margin-top: -0.5875rem;
+}
+
+.burger2 input:checked + span {
+  background-color: transparent;
+}
+
+.burger2 input:checked + span:before {
+  transform: translateY(0.525rem) rotate(-45deg);
+}
+
+.burger2 input:checked + span:after {
+  transform: translateY(0.525rem) rotate(45deg);
+}
+
+.burger3 input:checked + span:before, .burger3 input:checked + span:after {
+  top: 0px;
+  margin-top: -0.5875rem;
+}
+
+.burger3 input:checked + span {
+  transform: rotate(-360deg);
+  background-color: transparent;
+}
+
+.burger3 input:checked + span:before {
+  transform: translateY(0.525rem) rotate(-45deg);
+}
+
+.burger3 input:checked + span:after {
+  transform: translateY(0.525rem) rotate(45deg);
+}
+
+.burger4 input:checked + span:before, .burger4 input:checked + span:after {
+  top: 0px;
+  margin-top: -0.5875rem;
+}
+
+.burger4 input:checked + span {
+  animation: menuCloseMiddle--base 0.5s forwards;
+}
+
+.burger4 input:checked + span:before {
+  animation: menuCloseMiddle--before 0.5s forwards;
+}
+
+.burger4 input:checked + span:after {
+  animation: menuCloseMiddle--after 0.5s forwards;
+}
+
+@keyframes menuCloseMiddle--base {
+  0% {
+    background-color: black;
+  }
+  80% {
+    background-color: black;
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes menuCloseMiddle--after {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  80% {
+    transform: translateY(0.525rem) rotate(0);
+  }
+  100% {
+    transform: translateY(0.525rem) rotate(45deg);
+  }
+}
+
+@keyframes menuCloseMiddle--before {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  80% {
+    transform: translateY(0.525rem) rotate(0);
+  }
+  100% {
+    transform: translateY(0.525rem) rotate(-45deg);
+  }
+}

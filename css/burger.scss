@@ -1,0 +1,281 @@
+:root{
+    --color-black: black;
+  }
+  .hidden{
+    visibility:hidden;position: absolute;   width: 0; height: 0;
+  }
+  
+  @function rem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+  }
+  // The mixin
+  @mixin menu(
+      $width: 1.5rem,
+      $height: rem(2),
+      $gutter: rem(3),
+      $color: white,
+      $round: 0,
+      $transition-duration: 0.3s
+  ) {
+    @if unit($width) == "px" {
+      $width: rem($width);
+    }
+    @if unit($height) == "px" {
+      $height: rem($height);
+    }
+    @if unit($gutter) == "px" {
+      $gutter: rem($gutter);
+    }
+  
+    // Set margins
+    $margin: $height + $gutter;
+    $margin-left: $width / 2;
+    $margin-top: $height / 2;
+  
+    // Set specific styles for each bar
+    $top: $height + $gutter;
+  
+    // set global Variables
+    $menu-height: $height !global;
+    $menu-gutter: $gutter !global;
+    $menu-color: $color !global;
+    $menu-margin: $margin !global;
+    $menu-margin-left: $margin-left !global;
+    $menu-margin-top: $margin-top !global;
+    $menu-top: $top !global;
+  
+    // The code for the span
+    user-select: none;
+    position: absolute;
+    margin: #{$margin-top} auto #{$margin} -#{$margin-left};
+    text-indent: -999em;
+    top: 50%;
+    left: 50%;
+    margin-top: -#{$menu-height/2};
+    cursor: pointer;
+  
+    // Set styles to bars
+    &,
+    &:before,
+    &:after {
+      display: block;
+      width: $width;
+      height: $height;
+      background-color: $color;
+      transition: $transition-duration;
+      opacity: 1;
+      @if $round != 0 {
+        border-radius: $round;
+      }
+    }
+    // Bottom and top bar
+    &:before,
+    &:after {
+      position: absolute;
+      content: "";
+    }
+  
+    // Top bar
+    &:before {
+      top: -#{$top};
+    }
+  
+    // Bottom bar
+    &:after {
+      top: #{$top};
+    }
+  }
+  
+  @mixin menu-close {
+    &:before,
+    &:after {
+      top: 0px;
+      margin-top: -#{($menu-height/2) + ($menu-gutter + $menu-height)};
+      @content;
+    }
+    & {
+      background-color: transparent;
+    }
+    &:before {
+      transform: translateY($menu-gutter + $menu-height) rotate(45deg);
+    }
+    &:after {
+      transform: translateY($menu-gutter + $menu-height) rotate(-45deg);
+    }
+  }
+  
+  @mixin menu-close-rtl {
+    &:before,
+    &:after {
+      top: 0px;
+      margin-top: -#{($menu-height/2) + ($menu-gutter + $menu-height)};
+      @content;
+    }
+    & {
+      background-color: transparent;
+    }
+    &:before {
+      transform: translateY($menu-gutter + $menu-height) rotate(-45deg);
+    }
+    &:after {
+      transform: translateY($menu-gutter + $menu-height) rotate(45deg);
+    }
+  }
+  
+  @mixin menu-close-rotator {
+    &:before,
+    &:after {
+      top: 0px;
+      margin-top: -#{($menu-height/2) + ($menu-gutter + $menu-height)};
+      @content;
+    }
+    & {
+      transform: rotate(-360deg);
+      background-color: transparent;
+    }
+    &:before {
+      transform: translateY($menu-gutter + $menu-height) rotate(-45deg);
+    }
+    &:after {
+      transform: translateY($menu-gutter + $menu-height) rotate(45deg);
+    }
+  }
+
+  @mixin menu-close-middle {
+    &:before,
+    &:after {
+      top: 0px;
+      margin-top: -#{($menu-height/2) + ($menu-gutter + $menu-height)};
+      @content;
+    }
+    & {
+      animation: menuCloseMiddle--base 0.5s forwards;
+    }
+    &:before {
+      animation: menuCloseMiddle--before 0.5s forwards;
+    }
+    &:after {
+      animation: menuCloseMiddle--after 0.5s forwards;
+      @at-root {
+        @keyframes menuCloseMiddle--base {
+          0% {
+            background-color: rgba(0, 0, 0, 1);
+          }
+          80% {
+            background-color: rgba(0, 0, 0, 1);
+          }
+          100% {
+            background-color: rgba(0, 0, 0, 0);
+          }
+        }
+        @keyframes menuCloseMiddle--after {
+          0% {
+            transform: translateY(0) rotate(0);
+          }
+          80% {
+            transform: translateY($menu-gutter + $menu-height) rotate(0);
+          }
+          100% {
+            transform: translateY($menu-gutter + $menu-height) rotate(45deg);
+          }
+        }
+        @keyframes menuCloseMiddle--before {
+          0% {
+            transform: translateY(0) rotate(0);
+          }
+          80% {
+            transform: translateY($menu-gutter + $menu-height) rotate(0);
+          }
+          100% {
+            transform: translateY($menu-gutter + $menu-height) rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
+  @mixin menu-reset {
+    &:before,
+    &:after {
+      margin-top: 0;
+      @content;
+    }
+    & {
+      background-color: $menu-color;
+    }
+    &:before {
+      transform: translateY(0) rotate(0deg);
+      top: -#{$menu-top};
+    }
+    &:after {
+      transform: translateY(0) rotate(0deg);
+      top: #{$menu-top};
+    }
+  }
+  @mixin menu-body {
+    &,
+    &:before,
+    &:after {
+      @content;
+    }
+  }
+  @mixin menu-body-first {
+    &:before {
+      @content;
+    }
+  }
+  @mixin menu-body-middle {
+    & {
+      @content;
+    }
+  }
+  @mixin menu-body-last {
+    &:after {
+      @content;
+    }
+  }
+  
+  @mixin menu-body-close {
+    &:before,
+    &:after {
+      @content;
+    }
+  }
+  
+  .burger {
+    display: block;
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    // border-radius: 3px;
+    // box-shadow: 0 0 grid(1) rgba(0, 0, 0, 0.25), 0 0 grid(0.2) rgba(0, 0, 0, 0.1);
+    background-color: var(--color-white);
+    margin: 0.5rem;
+    span {
+      @include menu(1.5rem, 0.125rem, 0.4rem, var(--color-black));
+    }
+  }
+  .burgers {
+    display: flex;
+  }
+  .burger1 {
+    input:checked + span {
+      @include menu-close();
+    }
+  }
+  .burger2 {
+    input:checked + span {
+      @include menu-close-rtl();
+    }
+  }
+  .burger3 {
+    input:checked + span {
+      @include menu-close-rotator();
+    }
+  }
+  .burger4 {
+    input:checked + span {
+      @include menu-close-middle();
+    }
+  }
+  

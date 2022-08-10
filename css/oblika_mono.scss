@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,200;0,300;0,400;0,600;0,700;1,300;1,400&display=swap');/* typography */
+
+html {
+    /* Set parent font size */
+    font-size: 18px;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+body {
+    /* Set base line-height: 24 */
+    line-height: 1.5rem;
+    padding: 0;
+    margin: 0;
+    background-color: #fafafa;
+}
+
+p{
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    line-height: 1.5rem;
+
+    &.bigger{
+        font-size: 2em;
+        line-height: 1.25em;
+        font-weight: 200;
+    }
+
+    -webkit-font-smoothing: antialiased; /* Chrome, Safari */ 
+-moz-osx-font-smoothing: grayscale; /* Firefox */ 
+
+    -moz-font-feature-settings: "kern" 1; 
+-ms-font-feature-settings: "kern" 1; 
+-o-font-feature-settings: "kern" 1; 
+-webkit-font-feature-settings: "kern" 1; 
+font-feature-settings: "kern" 1; 
+font-kerning: normal;
+}
+
+h1{
+    font-weight: 700;
+    font-size: 6rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    line-height: 6rem;
+}
+
+h2{
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 0;
+    margin-top: 1.5rem;
+    line-height: 1.5em;
+}
+
+h6{
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+
+/* colors*/
+
+.bg_test{
+    background-image: url("../img/riga_27.png");
+  background-repeat: repeat;
+  // background-color: #cccccc;
+}
+
+/* containers */
+
+.container{
+    width: 960px;
+    margin: auto;
+}
