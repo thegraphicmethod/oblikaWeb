@@ -23,6 +23,9 @@
   <link rel="stylesheet" href="css/oblika.css">
   <link rel="stylesheet" href="css/burger.css">
 
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js"></script>
+  <script src="js/lissajous.js"></script>
+
 </head>
 
 <body class="bg_testt">
@@ -35,22 +38,33 @@
 
      -->
 
+     <!--
+     <div class="splash">
+        <p>splash</p>
+     </div>  
+
+-->
+
     <div class="main_grid " >
 
+         
+
+
+       
+
         <div class="row">
+
             <div class="content_grid" style="margin-top: 1.5rem;">
                 <div class="logo">
-                    <!--<img src="img/blob_c.svg" alt="blob">-->
+                   <p>the</p>
                 </div>
     
-                <div class="content" >
-
-                     <!--<img src="img/dandf.png" alt="D&F">-->
-
+                <div class="content" >        
                
                     <nav>
-                        <h3>drift & flow <span>*</span></h3>
-                        <p>data design agency</p>
+                        <h3>graphic<br/><strong>method</strong><span>.</span></h3>
+                        <div id="lissajous" style="width: 82px; height: 82px; "></div>
+                        <p>data design studio</p>
                     </nav>
                
 
@@ -99,17 +113,96 @@
         </div>
     </div>
 
-   
+    <!-- projects -->
+    <div class="main_grid" id="projects">
+        <div class="strip" style="background-color: rgba(255,255,255,0.5);">
 
-    <div class="main_grid " >
+            <div class="prj_grid" style="min-height: 240px; grid-column: span 3; ">
+               
+                <div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/500_x_500_SMPTE_Color_Bars.png" alt="test">
+                    <article class="card">
+                        <h4>Connected Action Commons</h4>
+                        <p><em>A visual interactive report on ECF activities.</em></p>
+                    </article>
+                   
+                </div>
 
-        <div class="content_grid bg_celeste_light" >
-            <div></div>
+                <div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/500_x_500_SMPTE_Color_Bars.png" alt="test">
+                    <article class="card">
+                        <h4>Uned Abierta</h4>
+                        <p><em>an interactive application to explore available courses at Uned Abierta.</em></p>
+                    </article>
+                   
+                </div>
 
-            <section>
+                <div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/500_x_500_SMPTE_Color_Bars.png" alt="test">
+                    <article class="card">
+                        <h4>Connected Action Commons</h4>
+                        <p><em>A visual interactive report on ECF activities.</em></p>
+                    </article>
+                   
+                </div>
+
+                <div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/500_x_500_SMPTE_Color_Bars.png" alt="test">
+                    <article class="card">
+                        <h4>Informe AOD FEMP</h4>
+                        <p><em>A visual interactive report on ECF activities.</em></p>
+                    </article>
+                   
+                </div>
+
+            </div>
+           
+            <div >
+                <div class="bg_rosso padded q reverse">
+                    <h4>projects</h4>
+                </div>
+
+                <div class="padded smaller">
+                    <p>Curabitur augue nunc, fringilla ut arcu vel, condimentum mollis orci. Morbi ac rhoncus ex. Quisque ante massa, pretium vitae aliquam ut, interdum vel libero. Integer blandit leo et mi venenatis aliquam. Duis sit amet ipsum ac <em>nisl lacinia consequat in nec odio</em>. In sit amet libero non metus dictum egestas sed at nunc.</p>
+                    <p>Donec enim nunc, consequat at accumsan vitae, pretium eget metus. </p>
+                    <hr/>
+                    <p>Donec enim nunc, consequat at accumsan vitae, pretium eget metus. </p>
+
+
+                </div>
+                
+                
+            </div>
+        </div>
+
+        <div style="background-color: rgba(255,255,255,0.5);">
+            <div class="bg_rosso " style="min-height: 240px;">
+                <div class="padded reverse smaller">
+                    <p>lorem ipsum</p>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <!-- clients -->
+    <div class="main_grid bg_verde_light" id="clients">
+        <div class="strip" >
+
+
+            <div class="bg_verde reverse padded smaller " style="grid-column: span 3;">
+                <p>a short list of companies<br/>we have recently worked for.</p>
+            </div>
+
+            <div class="bg_verde q padded reverse ">
+                <h4 style="margin-bottom: 0.5rem;">clients</h4>
+                
+            </div>
+
+            <section style="grid-row: 2; grid-column: 2 / span 3">
                 <div id="clientes" class="strip " style="padding-bottom: 4.5rem;">
 
-                  <h4 style="grid-column: span 2;">clients<span class="rosso"> |</span></h4>
+                 <!-- <h4 style="grid-column: span 2;">clients<span> :</span></h4>-->
         
                     <div>
                         <img src="img/clientes/ECF_logo_color@2x.png" alt="ECF">
@@ -147,13 +240,37 @@
                 </div>
             </section>
         </div>
-
-        <div class="bg_celeste_light"></div>
     </div>
-       
-       
 
-       
+    <div class="main_grid bg_celeste_light" id="otro">
+        <div class="strip" >
+
+            <div class="bg_verde_light q">
+                
+            </div>
+
+            <div class="bg_blu reverse padded">
+                <h4>otra cosa</h4>
+            </div>
+
+            <div class="bg_blu" style="grid-column: span 2;">
+
+            </div>
+
+            <div class="padded" style="grid-column: span 4; min-height: 12rem;">
+                <p>algo</p>
+            </div>
+
+
+        </div>
+
+        <div class="bg_carta">
+            <div class="bg_blu padded q reverse"></div>
+            
+        </div>
+
+        </div>
+
 
     </div>
 
@@ -183,11 +300,11 @@
         <div class="strip">
             <div class="bg_verde padded reverse" style="min-height: 200px;"><p>uno</p></div>
             <div class="bg_blu padded reverse"><p>uno</p></div>
-            <div class="bg_viola padded reverse"><p>uno</p></div>
+            <div class="bg_zucchero padded reverse"><p>uno</p></div>
             <div class="bg_rosso padded reverse"><p>uno</p></div>
         </div>
 
-        <div style="border-top: solid 1px #ccc;"></div>
+        <div></div>
     </div>
 
     <div class="main_grid " style="padding-top: 3rem; padding-bottom: 3rem">
@@ -274,7 +391,7 @@
         </div>
 
         <div>
-            <img src="https://picsum.photos/1200/1200?random=2" alt="test">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/500_x_500_SMPTE_Color_Bars.png" alt="test">
             <article class="card">
                 <h4>Informe AOD FEMP</h4>
                 <p><em>an interactive application to explore available courses at Uned Abierta.</em></p>
@@ -282,7 +399,7 @@
         </div>
 
         <div>
-            <img src="https://picsum.photos/1200/1200?random=1" alt="test">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/500_x_500_SMPTE_Color_Bars.png" alt="test">
             <article class="card"> <p>something</p></article>
         </div>
 
@@ -359,5 +476,7 @@
   <script src="https://d3js.org/d3.v6.min.js"></script>
   <script src="js/perlin.js"></script>
   <script src="js/bg.js"></script>
+
+ 
 </body>
 </html>
