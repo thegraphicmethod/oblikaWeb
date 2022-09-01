@@ -199,6 +199,11 @@ hr {
   box-sizing: border-box;
 }
 
+.qq {
+  min-height: 160px;
+  box-sizing: border-box;
+}
+
 .text_right {
   text-align: right;
 }
@@ -456,6 +461,21 @@ img {
 
 #projects .prj_grid div img {
   margin-bottom: 1.5rem;
+  filter: grayscale(1);
+  transition: filter 1s;
+}
+
+#projects .prj_grid div h4 {
+  color: rgba(0, 0, 0, 0.5);
+  transition: color 1s;
+}
+
+#projects .prj_grid div:hover h4 {
+  color: #000;
+}
+
+#projects .prj_grid div:hover img {
+  filter: grayscale(0);
 }
 
 #clientes {
@@ -557,6 +577,7 @@ img {
 .two_desc h4 {
   margin-bottom: 0.75rem;
   margin-top: 3rem !important;
+  color: #0748AE;
 }
 
 /* footer */
@@ -623,4 +644,11 @@ footer nav ul li a {
 
 footer div.social {
   padding-left: 1rem;
+}
+
+.ascii p {
+  font-size: 9px;
+  line-height: 10.5px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #000;
 }

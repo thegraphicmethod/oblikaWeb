@@ -175,6 +175,11 @@ hr{
     box-sizing: border-box;
 }
 
+.qq{
+    min-height: 160px;
+    box-sizing: border-box;
+}
+
 .text_right{
     text-align: right;
 }
@@ -459,11 +464,14 @@ img{
     h4{
         font-weight: 800;
         margin-top: 0.5rem;
+        // color: $cyanotype;
     }
 
     .prj_grid{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+
+        
 
         div{
             background-color: #fff;
@@ -472,6 +480,23 @@ img{
 
             img{
                 margin-bottom: 1.5rem;
+                 filter:  grayscale(1);
+                 transition: filter 1s;
+            }
+
+            h4{
+                color: rgba(0,0,0,.5);
+                transition: color 1s;
+            }
+
+            &:hover{
+                h4{
+                    color: #000;
+                }
+
+                img{
+                    filter: grayscale(0)
+                }
             }
         }
     }
@@ -617,6 +642,7 @@ img{
       
         margin-bottom: 0.75rem;
         margin-top: 3rem !important;
+        color: $cyanotype;
     }
 
    
@@ -699,5 +725,15 @@ footer{
 
     div.social{
         padding-left: 1rem;
+    }
+}
+
+.ascii{
+    p{
+    font-size: 9px;
+    line-height: 10.5px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000;
+    
     }
 }
